@@ -9,7 +9,7 @@ export default [
   perfectionist.configs["recommended-natural"],
   eslintConfigPrettier,
   {
-    ignores: ["**/*.js"],
+    ignores: ["**/*.js", "dist/**"],
   },
   {
     languageOptions: {
