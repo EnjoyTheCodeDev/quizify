@@ -17,7 +17,7 @@ export async function getQuizById(id: number): Promise<Quiz> {
 export async function createQuiz(
   data: Omit<Quiz, "id" | "createdAt">,
 ): Promise<Quiz> {
-  const res = await fetch(`${API_URL}/quizzes`, {
+  const res = await fetch(`${API_URL}/create`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
