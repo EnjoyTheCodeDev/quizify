@@ -10,7 +10,7 @@ type Props = {
 };
 
 const QuizItem: React.FC<Props> = ({ quiz }) => {
-  const { title } = quiz;
+  const { title, id } = quiz;
 
   return (
     <div
@@ -19,8 +19,12 @@ const QuizItem: React.FC<Props> = ({ quiz }) => {
         "border-2 border-primary-blue/80 p-1 md:p-3 rounded-sm",
       )}
     >
-      <NavLink href="/10" className="font-semibold text-lg text-primary-blue">
-        {title} <span className="font-medium text-base">({quiz.questions.length})</span> 
+      <NavLink
+        href={`/quizzes/${id}`}
+        className="font-semibold text-lg text-primary-blue"
+      >
+        {title}{" "}
+        <span className="font-medium text-base">({quiz.questions.length})</span>
       </NavLink>
 
       <TrashBtn />
