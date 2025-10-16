@@ -1,6 +1,6 @@
-import NavLink from "next/link"
+import NavLink from "next/link";
 
-import clsx from "clsx"
+import clsx from "clsx";
 
 const Header = () => {
   return (
@@ -10,9 +10,12 @@ const Header = () => {
         "mb-3 bg-white rounded-sm p-2 md:px-6 md:py-4",
       )}
     >
-      <h1 className="font-bold text-2xl md:text-3xl text-primary-blue">
+      <NavLink
+        href="/"
+        className="font-bold text-2xl md:text-3xl text-primary-blue"
+      >
         Quizify
-      </h1>
+      </NavLink>
 
       <NavLink
         href="/create"
@@ -25,7 +28,7 @@ const Header = () => {
         Create quiz
       </NavLink>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
