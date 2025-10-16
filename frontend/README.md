@@ -3,12 +3,10 @@
 First, install dependencies:
 
 ```bash
+cd frontend
+
 npm install
+
+npm run dev
 ```
 
-Then, start the development server:
-
-```bashbash
-npm start
-```
-This will start the application and open it in your default web browser. You can now begin developing your project!
