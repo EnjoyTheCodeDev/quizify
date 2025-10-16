@@ -10,7 +10,7 @@ export default function MainLayout({
       <div className="max-w-3xl w-full lg:max-w-4xl mx-4 lg:mx-0 mt-10 md:mt-20">
         <Header />
 
-        <main className="bg-white rounded-sm p-2 md:px-6 md:py-4 shadow">
+        <main className="bg-white rounded-sm p-2 py-3 md:px-6 md:py-6 shadow">
           {children}
         </main>
       </div>
