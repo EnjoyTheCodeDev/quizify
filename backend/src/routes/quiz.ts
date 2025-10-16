@@ -11,7 +11,7 @@ router.get("/quizzes", async (_, res) => {
   res.json(quizzes);
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/quizzes/:id", async (req, res) => {
   const quiz = await prisma.quiz.findUnique({
     include: { questions: { include: { options: true } } },
     where: { id: Number(req.params.id) },
