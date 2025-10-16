@@ -1,9 +1,9 @@
-import Header from "@/components/Header"
+import Header from "@/components/Header";
 
 export default function MainLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <div className="bg-gradient min-h-screen flex justify-center">
@@ -15,5 +15,5 @@ export default function MainLayout({
         </main>
       </div>
     </div>
-  )
+  );
 }
