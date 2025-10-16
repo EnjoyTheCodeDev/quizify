@@ -5,6 +5,8 @@ import { useFieldArray, useForm } from "react-hook-form";
 import PrimaryBtn from "@/components/PrimaryBtn";
 import CheckboxOptions from "@/components/CheckboxOption";
 
+import { createQuiz } from "@/services/quizService";
+
 type QuestionType = "BOOLEAN" | "INPUT" | "CHECKBOX";
 
 interface Option {
@@ -29,6 +31,7 @@ const Page = () => {
     control,
     handleSubmit,
     watch,
+    reset,
     formState: { errors, isSubmitting, isValid },
   } = useForm<QuizFormData>({
     mode: "onBlur",
@@ -43,8 +46,15 @@ const Page = () => {
     name: "questions",
   });
 
-  const onSubmit = (data: QuizFormData) => {
-    console.log("Submitting quiz:", data);
+  const onSubmit = async (data: QuizFormData) => {
+    try {
+      await createQuiz(data);
+      reset();
+      alert("Quiz created successfully!");
+    } catch (error) {
+      console.error(error);
+      alert("Failed to create quiz.");
+    }
   };
 
   const questions = watch("questions");

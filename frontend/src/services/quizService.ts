@@ -1,4 +1,4 @@
-import { Quiz } from "@/types/quiz";
+import { Quiz, CreateQuiz } from "@/types/quiz";
 
 const API_URL = process.env.API_URL || "http://localhost:3001";
 
@@ -15,7 +15,7 @@ export async function getQuizById(id: number): Promise<Quiz> {
 }
 
 export async function createQuiz(
-  data: Omit<Quiz, "id" | "createdAt">,
+  data: CreateQuiz,
 ): Promise<Quiz> {
   const res = await fetch(`${API_URL}/create`, {
     method: "POST",
