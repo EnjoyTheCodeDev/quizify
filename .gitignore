@@ -160,3 +160,6 @@ Thumbs.db
 .idea/
 .vscode/
 
+# Prisma
+backend/prisma/dev.db
+backend/prisma/generated/
