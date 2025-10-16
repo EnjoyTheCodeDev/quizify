@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    /* === Imports setup === */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
+    /* === File layout === */
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* === Module system === */
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "esnext",
+
+    /* === Types === */
+    "types": ["node"],
+
+    /* === Outputs === */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* === Strict checking === */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "skipLibCheck": true,
+
+    /* === Module behavior === */
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force"
+  },
+  "include": ["src/**/*"]
+}
