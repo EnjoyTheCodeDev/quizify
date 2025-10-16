@@ -52,4 +52,22 @@ router.post("/create", async (req, res) => {
   }
 });
 
+router.delete("/quizzes/:id", async (req, res) => {
+  const quizId = Number(req.params.id);
+
+  try {
+    const existing = await prisma.quiz.findUnique({ where: { id: quizId } });
+    if (!existing) return res.status(404).json({ error: "Quiz not found" });
+
+    await prisma.quiz.delete({
+      where: { id: quizId },
+    });
+
+    res.json({ message: `Quiz ${quizId} deleted successfully` });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to delete quiz" });
+  }
+});
+
 export default router;

@@ -14,9 +14,7 @@ export async function getQuizById(id: number): Promise<Quiz> {
   return res.json();
 }
 
-export async function createQuiz(
-  data: CreateQuiz,
-): Promise<Quiz> {
+export async function createQuiz(data: CreateQuiz): Promise<Quiz> {
   const res = await fetch(`${API_URL}/create`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -24,4 +22,11 @@ export async function createQuiz(
   });
   if (!res.ok) throw new Error("Failed to create quiz");
   return res.json();
+}
+
+export async function deleteQuiz(id: number): Promise<void> {
+  const res = await fetch(`${API_URL}/quizzes/${id}`, {
+    method: "DELETE",
+  });
+  if (!res.ok) throw new Error("Failed to delete quiz");
 }
