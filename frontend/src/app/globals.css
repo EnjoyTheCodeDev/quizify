@@ -4,6 +4,10 @@ button {
   @apply cursor-pointer;
 }
 
+input {
+  @apply outline-none;
+}
+
 .bg-gradient {
   background: #006a67;
   background: linear-gradient(

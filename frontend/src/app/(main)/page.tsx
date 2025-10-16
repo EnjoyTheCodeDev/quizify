@@ -1,30 +1,21 @@
 import QuizItem from "@/components/QuizItem";
 
-import { Quiz } from "@/types/quiz";
+import { getQuizzes } from "@/services/quizService";
 
-const MOCK_QUIZ: Quiz[] = [
-  {
-    id: 10,
-    title: "New Quiz",
-    questions: [],
-    createdAt: "2024-06-01T12:00:00Z",
-  },
-  {
-    id: 12,
-    title: "Another Quiz",
-    questions: [],
-    createdAt: "2024-06-02T12:00:00Z",
-  },
-];
+export default async function Page() {
+  const quizzes = await getQuizzes();
 
-export default function Page() {
   return (
     <ul className="flex flex-col gap-3 py-2 md:py-4">
-      {MOCK_QUIZ.map((quiz) => (
-        <li key={quiz.id} className="opacity-90 hover:opacity-100">
-          <QuizItem quiz={quiz} />
-        </li>
-      ))}
+      {quizzes.length > 0 ? (
+        quizzes.map((quiz) => (
+          <li key={quiz.id} className="opacity-90 hover:opacity-100">
+            <QuizItem quiz={quiz} />
+          </li>
+        ))
+      ) : (
+        <p className="text-sm text-gray-500">No quizzes available.</p>
+      )}
     </ul>
   );
 }
